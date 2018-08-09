@@ -44,12 +44,12 @@ Mat curlImg (const char *url, int timeout=10)
 int main(int argc, char const *argv[])
 {
     ifstream fileStream;
-    fileStream.open("neg/moneran-urls.txt");
+    fileStream.open("plantneg/plant-urls.txt");
     
     int count = 0;
     vector<Mat> images;
 
-    ofstream infoOut("bg_mon.lst");
+    ofstream infoOut("bg_plant.lst");
 
     while(!fileStream.eof())
     {
@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
         }
 
         resize(image, image, size);
-        string fileName = "neg/mon_"+to_string(count)+".png";
+        string fileName = "plantneg/p_"+to_string(count)+".png";
 
         imwrite(fileName, image);
         infoOut<<fileName<<"\n";

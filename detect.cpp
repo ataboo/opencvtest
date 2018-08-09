@@ -11,14 +11,12 @@ int main(int argc, char const *argv[])
         printf("Failed to load blob cascade!");
     }
 
-    Mat img = imread("pond_water_gray.png", IMREAD_GRAYSCALE);
+    Mat img = imread("pond_water_gray.png", IMREAD_COLOR);
 
     std::vector<Rect> matches;
-    Mat frame_gray;   
-
-    // cvtColor(img, frame_gray, COLOR_BGR2GRAY);
+    Mat frame_gray;
     
-    blobCascade.detectMultiScale(img, matches, 1.1, 6, 0 | CASCADE_SCALE_IMAGE, Size(24, 24), Size(96, 96));
+    blobCascade.detectMultiScale(img, matches, 1.05, 50, 0 | CASCADE_SCALE_IMAGE, Size(24, 24), Size(100, 100));
 
     for(size_t i=0; i < matches.size(); i++) {
         Rect match = matches[i];
